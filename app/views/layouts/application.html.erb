@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ValleyAdvisors</title>
+    <title>Valley Advisors</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <div id="header">
+      This is a place for a nice company logo from Sergio
+      <hr>
+    </div>
+    <div id="context">
+      <%= yield %>
+    </div>
+    <div id="footer">
+      <hr>
+      <p>Developed by Alex Marchenko</p>
+    </div>
   </body>
 </html>
