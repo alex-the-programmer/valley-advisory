@@ -9,9 +9,17 @@
   <body>
     <div id="header">
       This is a place for a nice company logo from Sergio
+      <div id="log-in-status">
+        <% if user_signed_in? %>
+            <%= link_to "Sign out", destroy_user_session, method: :delete %>
+        <% else %>
+            <%= link_to "Log in", new_user_session_path %>
+            <%= link_to "Sign up", new_user_registration_path %><br />
+        <% end %>
+      </div>
       <hr>
     </div>
-    <div id="context">
+    <div id="content">
       <div>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
