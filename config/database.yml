@@ -7,23 +7,23 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: valley-advisors
+  database: valley_advisors
   pool: 5
-  username: valley-advisors
-  password: valley-advisors
+  username: valley_advisors
+  password: valley_advisors
   host: localhost
 
 development:
   <<: *default
-  database: valley-advisors-dev
+  database: valley_advisors_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: valley-advisors-test
+  database: valley_advisors_test
 
 production:
   <<: *default
-  database: valley-advisors
+  database: valley_advisors
