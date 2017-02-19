@@ -1,0 +1,2 @@
+json.extract! candidate, :id, :user_id, :first_name, :last_name, :email, :phone, :desired_position, :current_company, :linked_in_url, :twitter_url, :git_hub_url, :portfolio_url, :website_url, :created_at, :updated_at
+json.url candidate_url(candidate, format: :json)
