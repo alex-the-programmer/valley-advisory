@@ -19,6 +19,9 @@
         <% end %>
       </div>
       <hr>
+      <%= if current_user&.role == 'advisor' %>
+        <%= render 'toolbars/advisor_toolbar' %>
+      <% end %>
     </div>
     <div id="content">
       <div>
