@@ -1,4 +1,6 @@
 class CandidatesController < ApplicationController
+  before_action only: [:index, :destroy] { authenticate 'advisor' }
+  before_action except: [:index, :destroy] { authenticate 'advisor', 'candidate' }
   before_action :set_candidate, only: [:show, :edit, :update, :destroy]
 
   # GET /candidates
