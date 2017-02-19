@@ -1,0 +1,7 @@
+<div>
+  <% if current_user.candidate.nil? %>
+      <%= link_to 'Create profile', new_candidate_path(current_user) %>
+  <% else %>
+      <%= link_to 'Update profile', edit_candidate_path(current_user) %>
+<% end %>
+</div>
