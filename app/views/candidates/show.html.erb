@@ -1,9 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<h5>User Info</h5>
 <p>
-  <strong>User:</strong>
-  <%= @candidate.user_id %>
+  <strong>First name:</strong>
+  <%= @candidate.user.first_name %>
 </p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @candidate.user.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @candidate.user.email %>
+</p>
+
+<h5>Candidate info</h5>
 
 <p>
   <strong>First name:</strong>

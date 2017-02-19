@@ -12,11 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
-  </div>
-
-  <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
   </div>
@@ -28,12 +23,12 @@
 
   <div class="field">
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.email_field :email %>
   </div>
 
   <div class="field">
     <%= f.label :phone %>
-    <%= f.text_field :phone %>
+    <%= f.phone_field :phone %>
   </div>
 
   <div class="field">
@@ -48,27 +43,27 @@
 
   <div class="field">
     <%= f.label :linked_in_url %>
-    <%= f.text_field :linked_in_url %>
+    <%= f.url_field :linked_in_url %>
   </div>
 
   <div class="field">
     <%= f.label :twitter_url %>
-    <%= f.text_field :twitter_url %>
+    <%= f.url_field :twitter_url %>
   </div>
 
   <div class="field">
     <%= f.label :git_hub_url %>
-    <%= f.text_field :git_hub_url %>
+    <%= f.url_field :git_hub_url %>
   </div>
 
   <div class="field">
     <%= f.label :portfolio_url %>
-    <%= f.text_field :portfolio_url %>
+    <%= f.url_field :portfolio_url %>
   </div>
 
   <div class="field">
     <%= f.label :website_url %>
-    <%= f.text_field :website_url %>
+    <%= f.url_field :website_url %>
   </div>
 
   <div class="actions">

@@ -24,18 +24,12 @@
   <tbody>
     <% @candidates.each do |candidate| %>
       <tr>
-        <td><%= candidate.user_id %></td>
         <td><%= candidate.first_name %></td>
         <td><%= candidate.last_name %></td>
         <td><%= candidate.email %></td>
         <td><%= candidate.phone %></td>
         <td><%= candidate.desired_position %></td>
         <td><%= candidate.current_company %></td>
-        <td><%= candidate.linked_in_url %></td>
-        <td><%= candidate.twitter_url %></td>
-        <td><%= candidate.git_hub_url %></td>
-        <td><%= candidate.portfolio_url %></td>
-        <td><%= candidate.website_url %></td>
         <td><%= link_to 'Show', candidate %></td>
         <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
         <td><%= link_to 'Destroy', candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
