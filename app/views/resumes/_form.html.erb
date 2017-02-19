@@ -12,13 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
-  </div>
-
-  <div class="field">
     <%= f.label :resume_data %>
-    <%= f.text_field :resume_data %>
+    <%= f.file_field :resume_data %>
   </div>
 
   <div class="actions">

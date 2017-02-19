@@ -2,4 +2,6 @@
 
 <%= render 'form', resume: @resume %>
 
-<%= link_to 'Back', resumes_path %>
+<% unless current_user.role == 'candidate' %>
+  <%= link_to 'Back', resumes_path %>
+<% end %>
