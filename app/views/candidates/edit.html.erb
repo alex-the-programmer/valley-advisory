@@ -2,5 +2,7 @@
 
 <%= render 'form', candidate: @candidate %>
 
-<%= link_to 'Show', @candidate %> |
-<%= link_to 'Back', candidates_path %>
+<% unless current_user.role == 'candidate' %>
+  <%= link_to 'Show', @candidate %> |
+  <%= link_to 'Back', candidates_path %>
+<% end %>
