@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @company.address_id %>
+</p>
+
+<p>
+  <strong>Cloudbase url:</strong>
+  <%= @company.cloudbase_url %>
+</p>
+
+<p>
+  <strong>Linkedin url:</strong>
+  <%= @company.linkedin_url %>
+</p>
+
+<p>
+  <strong>Glassdoors url:</strong>
+  <%= @company.glassdoors_url %>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>
