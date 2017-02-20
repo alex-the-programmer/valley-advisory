@@ -17,6 +17,7 @@ class CandidatesController < ApplicationController
   # GET /candidates/new
   def new
     @candidate = Candidate.new
+    @candidate.resume = Resume.new
   end
 
   # GET /candidates/1/edit
@@ -27,6 +28,12 @@ class CandidatesController < ApplicationController
   # POST /candidates.json
   def create
     @candidate = Candidate.new(candidate_params)
+
+    if @candidate.resume.resume_data.nil?
+      @candidate.resume = nil
+    else
+      @candidate.resume.file_name, @candidate.resume.content_type, @candidate.resume.resume_data = extract_file(@candidate.resume.resume_data)
+    end
 
     if current_user.role == 'candidate'
       @candidate.user = current_user
@@ -70,6 +77,11 @@ class CandidatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidate_params
-      params.require(:candidate).permit(:user_id, :first_name, :last_name, :email, :phone, :desired_position, :current_company, :linked_in_url, :twitter_url, :git_hub_url, :portfolio_url, :website_url)
+      params.require(:candidate).permit(:user_id, :first_name, :last_name, :email, :phone, :desired_position, :current_company, :linked_in_url, :twitter_url, :git_hub_url, :portfolio_url, :website_url,
+          resume_attributes:[:resume_data])
+    end
+
+    def extract_file(file)
+      return file.original_filename, file.content_type, file.read
     end
 end
