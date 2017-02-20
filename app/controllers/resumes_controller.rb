@@ -1,9 +1,12 @@
 class ResumesController < ApplicationController
-  before_action :set_resume, only: [:show, :edit, :update, :destroy]
+  before_action only: [:show, :destroy] { authenticate 'advisor' }
+  before_action except: [:show, :destroy] { authenticate 'advisor', 'candidate' }
+  before_action :set_candidate, :set_resume, only: [:show, :edit, :update, :destroy]
 
   # GET /resumes
   # GET /resumes.json
   def index
+    # todo delete
     @resumes = Resume.all
   end
 
@@ -63,6 +66,9 @@ class ResumesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_candidate
+      @candidate = Candidate.find(params[:candidate_id])
+    end
     def set_resume
       @resume = Resume.find(params[:id])
     end
