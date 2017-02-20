@@ -30,6 +30,10 @@
   </tbody>
 </table>
 
+<% unless @companies.any? %>
+    <p>There's no companies yet</p>
+<% end %>
+
 <br>
 
 <%= link_to 'New Company', new_company_path %>
