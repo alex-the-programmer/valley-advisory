@@ -1,7 +1,0 @@
-<h1>New Resume</h1>
-
-<%= render 'form', candidate: @candidate, resume: @resume %>
-
-<% unless current_user.role == 'candidate' %>
-  <%= link_to 'Back', resumes_path %>
-<% end %>
