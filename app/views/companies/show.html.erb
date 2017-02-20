@@ -6,8 +6,38 @@
 </p>
 
 <p>
-  <strong>Address:</strong>
-  <%= @company.address_id %>
+  <strong>Street Address 1:</strong>
+  <%= @company.address.street_address1 %>
+</p>
+
+<p>
+  <strong>Street Address 2:</strong>
+  <%= @company.address.street_address2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @company.address.city %>
+</p>
+
+<p>
+  <strong>:County:</strong>
+  <%= @company.address.county %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @company.address.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @company.address.country %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @company.address.zip %>
 </p>
 
 <p>

@@ -16,6 +16,7 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
+    @company.address = Address.new
   end
 
   # GET /companies/1/edit
@@ -29,7 +30,7 @@ class CompaniesController < ApplicationController
     if @company.save
       redirect_to @company, notice: 'Company was successfully created.'
     else
-      format.json { render json: @company.errors, status: :unprocessable_entity }
+      render :new
     end
   end
 
@@ -53,11 +54,12 @@ class CompaniesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
-      @company = Company.find(params[:id])
+      @company = Company.includes(:address).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :address_id, :cloudbase_url, :linkedin_url, :glassdoors_url)
+      params.require(:company).permit(:name, :cloudbase_url, :linkedin_url, :glassdoors_url,
+                                      address_attributes:[:street_address1, :street_address2, :city, :county, :state, :country, :zip])
     end
 end

@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220014351) do
+ActiveRecord::Schema.define(version: 20170220015303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "street_address1"
+    t.string   "street_address2"
+    t.string   "city"
+    t.string   "county"
+    t.string   "state"
+    t.string   "country"
+    t.string   "zip"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "candidates", force: :cascade do |t|
     t.integer  "user_id"
@@ -70,5 +82,6 @@ ActiveRecord::Schema.define(version: 20170220014351) do
   end
 
   add_foreign_key "candidates", "users"
+  add_foreign_key "companies", "addresses"
   add_foreign_key "resumes", "candidates", column: "user_id"
 end
