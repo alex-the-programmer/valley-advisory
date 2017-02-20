@@ -1,0 +1,1 @@
+json.partial! "hiring_managers/hiring_manager", hiring_manager: @hiring_manager

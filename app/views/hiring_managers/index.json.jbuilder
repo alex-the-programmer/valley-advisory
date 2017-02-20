@@ -1,0 +1,1 @@
+json.array! @hiring_managers, partial: 'hiring_managers/hiring_manager', as: :hiring_manager
