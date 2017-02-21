@@ -13,6 +13,8 @@
 
   <%= f.fields_for :user do |user| %>
         <%# todo move this to a user fields partial %>
+      <%= user.hidden_field :id %>
+
       <div class="field">
         <%= user.label :first_name %>
         <%= user.text_field :first_name %>

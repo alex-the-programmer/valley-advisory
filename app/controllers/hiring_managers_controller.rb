@@ -67,6 +67,6 @@ class HiringManagersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def hiring_manager_params
       params.require(:hiring_manager).permit(:user_id, :company_id, :position,
-          user_attributes: [:first_name, :last_name, :email])
+          user_attributes: [:id, :first_name, :last_name, :email])
     end
 end
