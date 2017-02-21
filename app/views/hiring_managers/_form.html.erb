@@ -1,4 +1,4 @@
-<%= form_for(hiring_manager) do |f| %>
+<%= form_for([company, hiring_manager]) do |f| %>
   <% if hiring_manager.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(hiring_manager.errors.count, "error") %> prohibited this hiring_manager from being saved:</h2>
@@ -11,15 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
-  </div>
+  <%= f.fields_for :user do |user| %>
+        <%# todo move this to a user fields partial %>
+      <div class="field">
+        <%= user.label :first_name %>
+        <%= user.text_field :first_name %>
+      </div>
 
-  <div class="field">
-    <%= f.label :company_id %>
-    <%= f.text_field :company_id %>
-  </div>
+        <div class="field">
+          <%= user.label :last_name %>
+          <%= user.text_field :last_name %>
+        </div>
+
+        <div class="field">
+          <%= user.label :email %>
+          <%= user.email_field :email %>
+        </div>
+  <% end %>
 
   <div class="field">
     <%= f.label :position %>
