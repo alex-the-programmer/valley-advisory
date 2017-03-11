@@ -6,9 +6,10 @@ class CreateRoles < ActiveRecord::Migration[5.0]
       t.string :name
       t.text :description
       t.integer :min_rate
-      t.rate :max
+      t.integer :max_rate
       t.string :employment_time
       t.string :employment_type
+      t.integer :contract_duration_in_months
       t.string :travel_type
       t.boolean :sponsors_visa
       t.string :city
@@ -17,7 +18,7 @@ class CreateRoles < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
-    add_foreign_key :companies, :roles
-    add_foreign_key :companies, :hiring_managers
+    add_foreign_key :roles, :companies
+    add_foreign_key :hiring_managers, :companies
   end
 end

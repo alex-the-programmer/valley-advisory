@@ -2,12 +2,12 @@
 
 <p>
   <strong>Company:</strong>
-  <%= @role.company_id %>
+  <%= @role.company.name %>
 </p>
 
 <p>
   <strong>Hiring manager:</strong>
-  <%= @role.hiring_manager_id %>
+  <%= @role.hiring_manager&.first_name %> <%= @role.hiring_manager&.last_name %>
 </p>
 
 <p>
@@ -27,7 +27,7 @@
 
 <p>
   <strong>Max:</strong>
-  <%= @role.max %>
+  <%= @role.max_rate %>
 </p>
 
 <p>
@@ -60,5 +60,5 @@
   <%= @role.state %>
 </p>
 
-<%= link_to 'Edit', edit_role_path(@role) %> |
-<%= link_to 'Back', roles_path %>
+<%= link_to 'Edit', edit_company_role_path(@company, @role) %> |
+<%= link_to 'Back', company_roles_path(@company) %>

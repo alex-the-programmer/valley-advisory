@@ -1,5 +1,5 @@
 <h1>New Role</h1>
 
-<%= render 'form', role: @role %>
+<%= render 'form', company: @company, role: @role %>
 
-<%= link_to 'Back', roles_path %>
+<%= link_to 'Back', company_roles_path(@company) %>

@@ -1,4 +1,4 @@
-<%= form_for(role) do |f| %>
+<%= form_for([company, role]) do |f| %>
   <% if role.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(role.errors.count, "error") %> prohibited this role from being saved:</h2>
@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :company_id %>
-    <%= f.number_field :company_id %>
-  </div>
+  <%= f.hidden_field :company_id %>
 
   <div class="field">
     <%= f.label :hiring_manager_id %>
@@ -37,23 +34,28 @@
   </div>
 
   <div class="field">
-    <%= f.label :max %>
-    <%= f.text_field :max %>
+    <%= f.label :max_rate %>
+    <%= f.number_field :max_rate %>
   </div>
 
   <div class="field">
     <%= f.label :employment_time %>
-    <%= f.text_field :employment_time %>
+    <%= f.select :employment_time, ['Full Time', 'Part Time'] %>
   </div>
 
   <div class="field">
     <%= f.label :employment_type %>
-    <%= f.text_field :employment_type %>
+    <%= f.select :employment_type, %w(Permanent Contract) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contract_duration_in_months %>
+    <%= f.number_field :contract_duration_in_months %>
   </div>
 
   <div class="field">
     <%= f.label :travel_type %>
-    <%= f.text_field :travel_type %>
+    <%= f.select :travel_type, ['No Travel', '25% Travel' '50% Travel', 'More than 50% Travel'] %>
   </div>
 
   <div class="field">

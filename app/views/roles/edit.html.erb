@@ -1,6 +1,6 @@
 <h1>Editing Role</h1>
 
-<%= render 'form', role: @role %>
+<%= render 'form', company: @company, role: @role %>
 
-<%= link_to 'Show', @role %> |
-<%= link_to 'Back', roles_path %>
+<%= link_to 'Show', [@company, @role] %> |
+<%= link_to 'Back', company_roles_path(@company) %>
