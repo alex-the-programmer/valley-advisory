@@ -1,0 +1,2 @@
+json.extract! role, :id, :company_id, :hiring_manager_id, :name, :description, :min_rate, :max, :employment_time, :employment_type, :travel_type, :sponsors_visa, :city, :state, :created_at, :updated_at
+json.url role_url(role, format: :json)

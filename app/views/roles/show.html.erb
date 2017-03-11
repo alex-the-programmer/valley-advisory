@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @role.company_id %>
+</p>
+
+<p>
+  <strong>Hiring manager:</strong>
+  <%= @role.hiring_manager_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @role.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @role.description %>
+</p>
+
+<p>
+  <strong>Min rate:</strong>
+  <%= @role.min_rate %>
+</p>
+
+<p>
+  <strong>Max:</strong>
+  <%= @role.max %>
+</p>
+
+<p>
+  <strong>Employment time:</strong>
+  <%= @role.employment_time %>
+</p>
+
+<p>
+  <strong>Employment type:</strong>
+  <%= @role.employment_type %>
+</p>
+
+<p>
+  <strong>Travel type:</strong>
+  <%= @role.travel_type %>
+</p>
+
+<p>
+  <strong>Sponsors visa:</strong>
+  <%= @role.sponsors_visa %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @role.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @role.state %>
+</p>
+
+<%= link_to 'Edit', edit_role_path(@role) %> |
+<%= link_to 'Back', roles_path %>

@@ -1,0 +1,77 @@
+<%= form_for(role) do |f| %>
+  <% if role.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(role.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+      <ul>
+      <% role.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :company_id %>
+    <%= f.number_field :company_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hiring_manager_id %>
+    <%= f.number_field :hiring_manager_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :min_rate %>
+    <%= f.number_field :min_rate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max %>
+    <%= f.text_field :max %>
+  </div>
+
+  <div class="field">
+    <%= f.label :employment_time %>
+    <%= f.text_field :employment_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :employment_type %>
+    <%= f.text_field :employment_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :travel_type %>
+    <%= f.text_field :travel_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sponsors_visa %>
+    <%= f.check_box :sponsors_visa %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
