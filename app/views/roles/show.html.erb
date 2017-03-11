@@ -7,7 +7,7 @@
 
 <p>
   <strong>Hiring manager:</strong>
-  <%= @role.hiring_manager&.first_name %> <%= @role.hiring_manager&.last_name %>
+  <%= @role.hiring_manager&.user.first_name %> <%= @role.hiring_manager&.user.last_name %>
 </p>
 
 <p>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Roles</h1>
+<h1>Roles for <%= @company.name %></h1>
 
 <table>
   <thead>
@@ -23,7 +23,7 @@
     <% @roles.each do |role| %>
       <tr>
         <td><%= role.company.name %></td>
-        <td><%= role.hiring_manager&.first_name %> <%= role.hiring_manager&.last_name %></td>
+        <td><%= role.hiring_manager&.user.first_name %> <%= role.hiring_manager&.user.last_name %></td>
         <td><%= role.name %></td>
         <td><%= role.min_rate %></td>
         <td><%= role.max_rate %></td>
@@ -32,9 +32,9 @@
         <td><%= role.sponsors_visa %></td>
         <td><%= role.city %></td>
         <td><%= role.state %></td>
-        <td><%= link_to 'Show', [company, role] %></td>
-        <td><%= link_to 'Edit', edit_company_role_path(company, role) %></td>
-        <td><%= link_to 'Destroy', [company, role], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [@company, role] %></td>
+        <td><%= link_to 'Edit', edit_company_role_path(@company, role) %></td>
+        <td><%= link_to 'Destroy', [@company, role], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Role', new_role_path %>
+<%= link_to 'New Role', new_company_role_path(@company) %>

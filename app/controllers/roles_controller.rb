@@ -1,5 +1,5 @@
 class RolesController < ApplicationController
-  before_action :set_company, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_company
   before_action :set_role, only: [:show, :edit, :update, :destroy]
 
   # GET /roles
@@ -29,7 +29,7 @@ class RolesController < ApplicationController
     @role.company = @company
 
     if @role.save
-      redirect_to @role, notice: 'Role was successfully created.'
+      redirect_to [@company, @role], notice: 'Role was successfully created.'
     else
       render :new
     end
@@ -39,7 +39,7 @@ class RolesController < ApplicationController
   # PATCH/PUT /roles/1.json
   def update
     if @role.update(role_params)
-      redirect_to @role, notice: 'Role was successfully updated.'
+      redirect_to [@company, @role], notice: 'Role was successfully updated.'
     else
       render :edit
     end
@@ -60,7 +60,7 @@ class RolesController < ApplicationController
     end
 
     def set_role
-      @role = @company.find(params[:id])
+      @role = @company.roles.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

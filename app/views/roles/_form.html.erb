@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= f.label :hiring_manager_id %>
-    <%= f.number_field :hiring_manager_id %>
+    <%= f.collection_select :hiring_manager_id, company.hiring_managers, :id, ->(m) { "#{m.user.first_name} #{m.user.last_name}" }, prompt: 'Select a hiring manager' %>
   </div>
 
   <div class="field">
@@ -55,7 +55,7 @@
 
   <div class="field">
     <%= f.label :travel_type %>
-    <%= f.select :travel_type, ['No Travel', '25% Travel' '50% Travel', 'More than 50% Travel'] %>
+    <%= f.select :travel_type, ['No Travel', '25% Travel', '50% Travel', 'More than 50% Travel'] %>
   </div>
 
   <div class="field">
