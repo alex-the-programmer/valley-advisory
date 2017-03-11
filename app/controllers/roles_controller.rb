@@ -1,4 +1,5 @@
 class RolesController < ApplicationController
+  before_action :set_company, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_role, only: [:show, :edit, :update, :destroy]
 
   # GET /roles
@@ -25,29 +26,22 @@ class RolesController < ApplicationController
   # POST /roles.json
   def create
     @role = Role.new(role_params)
+    @role.company = @company
 
-    respond_to do |format|
-      if @role.save
-        format.html { redirect_to @role, notice: 'Role was successfully created.' }
-        format.json { render :show, status: :created, location: @role }
-      else
-        format.html { render :new }
-        format.json { render json: @role.errors, status: :unprocessable_entity }
-      end
+    if @role.save
+      redirect_to @role, notice: 'Role was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /roles/1
   # PATCH/PUT /roles/1.json
   def update
-    respond_to do |format|
-      if @role.update(role_params)
-        format.html { redirect_to @role, notice: 'Role was successfully updated.' }
-        format.json { render :show, status: :ok, location: @role }
-      else
-        format.html { render :edit }
-        format.json { render json: @role.errors, status: :unprocessable_entity }
-      end
+    if @role.update(role_params)
+      redirect_to @role, notice: 'Role was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -55,20 +49,22 @@ class RolesController < ApplicationController
   # DELETE /roles/1.json
   def destroy
     @role.destroy
-    respond_to do |format|
-      format.html { redirect_to roles_url, notice: 'Role was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to company_roles_path(@company), notice: 'Role was successfully destroyed.'
+    head :no_content
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_company
+      @company = Company.find(params[:company_id])
+    end
+
     def set_role
-      @role = Role.find(params[:id])
+      @role = @company.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def role_params
-      params.require(:role).permit(:company_id, :hiring_manager_id, :name, :description, :min_rate, :max, :employment_time, :employment_type, :travel_type, :sponsors_visa, :city, :state)
+      params.require(:role).permit(:company_id, :hiring_manager_id, :name, :description, :min_rate, :max_rate, :employment_time, :employment_type, :contract_duration_in_months, :travel_type, :sponsors_visa, :city, :state)
     end
 end

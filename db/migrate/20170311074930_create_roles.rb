@@ -19,6 +19,6 @@ class CreateRoles < ActiveRecord::Migration[5.0]
     end
 
     add_foreign_key :roles, :companies
-    add_foreign_key :hiring_managers, :companies
+    add_foreign_key :roles, :hiring_managers
   end
 end
